@@ -1,9 +1,11 @@
 FROM debian:buster-slim
 
-ENV CODE code
-ENV SERVER smart
-ENV HEALTHCHECK healthcheck
-ENV VERSION=expressvpn_2.6.0.32-1_armhf.deb
+ENV CODE="code"
+ENV SERVER="smart"
+ENV BEARER=""
+ENV HEALTHCHECK=""
+
+ARG VERSION="expressvpn_2.6.0.32-1_armhf.deb"
 
 COPY files/ /expressvpn/
 
@@ -16,6 +18,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get purge --autoremove -y wget \
 	&& rm -rf /var/log/*.log
 
-HEALTHCHECK --start-period=30s --timeout=5s --interval=2m --retries=3 CMD bash /expressvpn/healthcheck.sh
+HEALTHCHECK --start-period=30s --timeout=5s --interval=1m --retries=3 CMD bash /expressvpn/healthcheck.sh
 
 ENTRYPOINT ["/bin/bash", "/expressvpn/start.sh"]
