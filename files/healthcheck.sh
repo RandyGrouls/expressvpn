@@ -7,8 +7,8 @@ fi
 
 if [[ ! -z $checkIP ]];
 then
-	expressvpnIP=$(curl -s -H "Authorization: Bearer $BEARER" 'ipinfo.io' | jq --raw-output '.ip')
-	if [[ $checkIP = $expressvpnIP ]];
+	currentIP=$(curl -s -H "Authorization: Bearer $BEARER" 'ipinfo.io' | jq --raw-output '.ip')
+	if [[ $checkIP = $currentIP ]];
 	then
 		if [[ ! -z $HEALTHCHECK ]];
 		then
