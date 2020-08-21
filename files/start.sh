@@ -6,7 +6,7 @@ rm /etc/resolv.conf.bak
 service expressvpn restart
 expect /expressvpn/activate.sh
 expressvpn connect $SERVER
-expressvpn protocol udp
+#expressvpn protocol udp
 
 touch /var/log/temp.log
 tail -f /var/log/temp.log
