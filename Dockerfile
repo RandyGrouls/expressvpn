@@ -2,8 +2,6 @@ FROM debian:buster-slim
 
 ENV CODE="code"
 ENV SERVER="smart"
-ENV BEARER=""
-ENV HEALTHCHECK=""
 
 ARG VERSION="expressvpn_2.6.0.32-1_armhf.deb"
 
