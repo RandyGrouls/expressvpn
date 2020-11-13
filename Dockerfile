@@ -3,7 +3,7 @@ FROM debian:buster-slim
 ENV CODE="code"
 ENV SERVER="smart"
 
-ARG VERSION="expressvpn_2.6.3.3-1_armhf.deb"
+ARG VERSION="expressvpn_3.2.1.2-1_armhf.deb"
 
 COPY files/ /expressvpn/
 
